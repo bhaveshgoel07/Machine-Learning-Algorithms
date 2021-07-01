@@ -4,5 +4,10 @@ This repo contains the explanation and code for basic Machine Learning Algorithm
 
 
 Algorithms include : - 
-*Linear Regression
-*
+* Linear Regression
+* Multiple Linear Regression
+* Classification: - K-Nearest Neighbors
+* Logistic Regression
+* Decision Trees
+* Clustering: K-Means
+* Perceptron
