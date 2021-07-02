@@ -32,6 +32,7 @@ As we try to minimize loss, we take each parameter we are changing, and move it 
 
 The process by which we do this is called gradient descent. We move in the direction that decreases our loss the most. Gradient refers to the slope of the curve at any point. 
 Formula for Gradient Descent is: - 
+
 ![](2021-07-02-04-22-12.png)
 
 It can be derived using Calculus
