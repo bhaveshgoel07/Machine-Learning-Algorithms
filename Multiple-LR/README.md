@@ -92,3 +92,37 @@ After performing multiple linear regression, you can print the coefficients usin
 In regression, the independent variables will either have a positive linear relationship to the dependent variable, a negative linear relationship, or no relationship. A negative linear relationship means that as X values increase, Y values will decrease. Similarly, a positive linear relationship means that as X values increase, Y values will also increase.
 Graphically, when you see a downward trend, it means a negative linear relationship exists. When you find an upward trend, it indicates a positive linear relationship. Here are two graphs indicating positive and negative linear relationships:
 ![](2021-07-06-07-15-26.png)
+
+## Evaluating the Model's Accuracy
+When trying to evaluate the accuracy of our multiple linear regression model, one technique we can use is Residual Analysis.
+
+The difference between the actual value y, and the predicted value ŷ is the residual e. The equation is:
+
+$$ e = y - \hat{y} $$
+
+In the StreetEasy dataset, y is the actual rent and the ŷ is the predicted rent. The real y values should be pretty close to these predicted y values.
+
+sklearn‘s linear_model.LinearRegression comes with a .score() method that returns the coefficient of determination R² of the prediction.
+
+The coefficient R² is defined as:
+
+$$ 1 - \frac{u}{v} $$
+​ 
+where u is the residual sum of squares:
+
+```python
+((y - y_predict) ** 2).sum()
+```
+and v is the total sum of squares (TSS):
+```python
+((y - y.mean()) ** 2).sum()
+```
+The TSS tells you how much variation there is in the y variable.
+
+R² is the percentage variation in y explained by all the x variables together.
+
+For example, say we are trying to predict rent based on the size_sqft and the bedrooms in the apartment and the R² for our model is 0.72 — that means that all the x variables (square feet and number of bedrooms) together explain 72% variation in y (rent).
+
+Now let’s say we add another x variable, building’s age, to our model. By adding this third relevant x variable, the R² is expected to go up. Let say the new R² is 0.95. This means that square feet, number of bedrooms and age of the building together explain 95% of the variation in the rent.
+
+The best possible R² is 1.00 (and it can be negative because the model can be arbitrarily worse). Usually, a R² of 0.70 is considered good.
